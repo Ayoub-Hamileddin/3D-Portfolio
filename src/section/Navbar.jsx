@@ -1,4 +1,23 @@
 import React, { useState } from "react";
+import { motion } from "motion/react";
+function Navigation() {
+  return (
+    <ul className="nav-ul">
+      <li className="nav-li">
+        <a className="nav-link">Home</a>
+      </li>
+      <li className="nav-li">
+        <a className="nav-link">About</a>
+      </li>
+      <li className="nav-li">
+        <a className="nav-link">Work</a>
+      </li>
+      <li className="nav-li">
+        <a className="nav-link">Contact</a>
+      </li>
+    </ul>
+  );
+}
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +36,29 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
           >
             <img
-              src={isOpen ? "assets/close.svg": "assets/menu.svg"}
+              src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
               alt="menu"
               className="w-6 h-6"
             />
           </button>
+          <nav className="hidden sm:flex">
+            <Navigation />
+          </nav>
         </div>
       </div>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="block overflow-hidden text-center sm:hidden"
+          style={{ maxHeight: "100vh" }}
+        >
+          <nav className="pb-5">
+            <Navigation />
+          </nav>
+        </motion.div>
+      )}
     </div>
   );
 };
