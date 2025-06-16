@@ -29,7 +29,7 @@ const Navbar = () => {
             href="#"
             className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
           >
-            AYOUB
+            AYOUB HAMILEDDDIN
           </a>
           <button
             className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
